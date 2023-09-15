@@ -73,14 +73,16 @@ cor(elev$temp, elev$day, use="complete")
 hist(met$elev, breaks=100)
 hist(met$temp)
 hist(met$wind.sp)
-library(lubridate)
-elev$date <- with(elev, ymd_h(paste(year, month, day, hour, sep= '')))
+
+library(leaflet)
 leaflet(elev) %>%
   addProviderTiles('OpenStreetMap') %>%
   addCircles(lat=~lat, lng=~lon, opacity=1, fillOpacity=1, radius=100)
+library(lubridate)
+elev$date <- with(elev, ymd_h(paste(year, month, day, hour, sep= '')))
 summary(elev$date)
 elev <- elev[order(date)]
 head(elev)
-plot(elev$date, elev$temp, type="l")
+plot(elev$date, elev$temp, type='l')
 plot(elev$date, elev$wind.sp, type='l')
 ```
