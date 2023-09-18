@@ -85,4 +85,8 @@ elev <- elev[order(date)]
 head(elev)
 plot(elev$date, elev$temp, type='l')
 plot(elev$date, elev$wind.sp, type='l')
+
+format:
+html:
+  embed-resources: true
 ```
