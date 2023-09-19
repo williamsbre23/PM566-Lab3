@@ -1,7 +1,9 @@
 ---
 title: "Lab 3"
 author: Breyonne Williams
-format: html
+format:
+  html:
+    embed-resources: true
 editor: visual
 ---
 
@@ -83,6 +85,8 @@ elev$date <- with(elev, ymd_h(paste(year, month, day, hour, sep= '')))
 summary(elev$date)
 elev <- elev[order(date)]
 head(elev)
-plot(elev$date, elev$temp, type='l')
-plot(elev$date, elev$wind.sp, type='l')
+elev$date <- c()
+elev$temp <- c()
+plot(elev$day, elev$temp, type='l')
+plot(elev$day, elev$wind.sp, type='l')
 ```
